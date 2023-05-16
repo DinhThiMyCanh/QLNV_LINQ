@@ -2,24 +2,30 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="QLNV">
   <DataContextMoniker Name="/QLNVDataContext" />
   <nestedChildShapes>
-    <classShape Id="8ab75964-7368-4e75-8150-03e6e7eb9cdf" absoluteBounds="4.25, 1.25, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/QLNVDataContext/NhanVien" />
+    <classShape Id="7528edd6-44e7-484a-bebf-9e528a2f9270" absoluteBounds="4.25, 1.375, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/QLNVDataContext/NHANVIEN" />
       <nestedChildShapes>
-        <elementListCompartment Id="2340a115-a87f-46bc-b02b-d07632985619" absoluteBounds="4.265, 1.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="cb367c6b-83a8-4bdf-89a0-13e5af7cc3bb" absoluteBounds="4.265, 1.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="361ded84-9e54-4b56-9234-628eae6f63b7" absoluteBounds="1.25, 2, 2, 1.1939925130208333">
-      <DataClassMoniker Name="/QLNVDataContext/PhongBan" />
+    <classShape Id="ab5743ab-2590-4ed8-885d-479c190a6470" absoluteBounds="1.75, 2.125, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/QLNVDataContext/PHONGBAN" />
       <nestedChildShapes>
-        <elementListCompartment Id="cada887e-f94a-41fc-87d3-bf57f7203c5b" absoluteBounds="1.2650000000000001, 2.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="3eab79e2-311c-464c-b804-9a39d96e0899" absoluteBounds="1.7650000000000001, 2.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(3.25 : 2.59699625651042); (4.25 : 2.59699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/QLNVDataContext/PhongBan/PhongBan_NhanVien" />
+    <associationConnector edgePoints="[(3.75 : 2.72199625651042); (4.25 : 2.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QLNVDataContext/PHONGBAN/PHONGBAN_NHANVIEN" />
       <nodes>
-        <classShapeMoniker Id="361ded84-9e54-4b56-9234-628eae6f63b7" />
-        <classShapeMoniker Id="8ab75964-7368-4e75-8150-03e6e7eb9cdf" />
+        <classShapeMoniker Id="ab5743ab-2590-4ed8-885d-479c190a6470" />
+        <classShapeMoniker Id="7528edd6-44e7-484a-bebf-9e528a2f9270" />
       </nodes>
     </associationConnector>
+    <classShape Id="29ce4e77-8237-4ace-ac12-e664baeb5f6b" absoluteBounds="0.5, 0.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/QLNVDataContext/DangNhap" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1647ffa6-7c29-480a-b3aa-6fe827254190" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

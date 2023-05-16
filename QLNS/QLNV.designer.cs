@@ -22,7 +22,7 @@ namespace QLNS
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QLNhanVien")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QLNV")]
 	public partial class QLNVDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -30,16 +30,16 @@ namespace QLNS
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertNhanVien(NhanVien instance);
-    partial void UpdateNhanVien(NhanVien instance);
-    partial void DeleteNhanVien(NhanVien instance);
-    partial void InsertPhongBan(PhongBan instance);
-    partial void UpdatePhongBan(PhongBan instance);
-    partial void DeletePhongBan(PhongBan instance);
+    partial void InsertNHANVIEN(NHANVIEN instance);
+    partial void UpdateNHANVIEN(NHANVIEN instance);
+    partial void DeleteNHANVIEN(NHANVIEN instance);
+    partial void InsertPHONGBAN(PHONGBAN instance);
+    partial void UpdatePHONGBAN(PHONGBAN instance);
+    partial void DeletePHONGBAN(PHONGBAN instance);
     #endregion
 		
 		public QLNVDataContext() : 
-				base(global::QLNS.Properties.Settings.Default.QLNhanVienConnectionString, mappingSource)
+				base(global::QLNS.Properties.Settings.Default.QLNVConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -68,25 +68,33 @@ namespace QLNS
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<NhanVien> NhanViens
+		public System.Data.Linq.Table<NHANVIEN> NHANVIENs
 		{
 			get
 			{
-				return this.GetTable<NhanVien>();
+				return this.GetTable<NHANVIEN>();
 			}
 		}
 		
-		public System.Data.Linq.Table<PhongBan> PhongBans
+		public System.Data.Linq.Table<PHONGBAN> PHONGBANs
 		{
 			get
 			{
-				return this.GetTable<PhongBan>();
+				return this.GetTable<PHONGBAN>();
+			}
+		}
+		
+		public System.Data.Linq.Table<DangNhap> DangNhaps
+		{
+			get
+			{
+				return this.GetTable<DangNhap>();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NhanVien")]
-	public partial class NhanVien : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NHANVIEN")]
+	public partial class NHANVIEN : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -105,7 +113,7 @@ namespace QLNS
 		
 		private string _Picture;
 		
-		private EntityRef<PhongBan> _PhongBan;
+		private EntityRef<PHONGBAN> _PHONGBAN;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -127,13 +135,13 @@ namespace QLNS
     partial void OnPictureChanged();
     #endregion
 		
-		public NhanVien()
+		public NHANVIEN()
 		{
-			this._PhongBan = default(EntityRef<PhongBan>);
+			this._PHONGBAN = default(EntityRef<PHONGBAN>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNV", DbType="NChar(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNV", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string MaNV
 		{
 			get
@@ -173,7 +181,7 @@ namespace QLNS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgaySinh", DbType="Date")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgaySinh", DbType="DateTime")]
 		public System.Nullable<System.DateTime> NgaySinh
 		{
 			get
@@ -233,7 +241,7 @@ namespace QLNS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaPB", DbType="NChar(5)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaPB", DbType="NChar(10)")]
 		public string MaPB
 		{
 			get
@@ -244,7 +252,7 @@ namespace QLNS
 			{
 				if ((this._MaPB != value))
 				{
-					if (this._PhongBan.HasLoadedOrAssignedValue)
+					if (this._PHONGBAN.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -257,7 +265,7 @@ namespace QLNS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Picture", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Picture", DbType="NChar(10)")]
 		public string Picture
 		{
 			get
@@ -277,36 +285,36 @@ namespace QLNS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PhongBan_NhanVien", Storage="_PhongBan", ThisKey="MaPB", OtherKey="MaPB", IsForeignKey=true)]
-		public PhongBan PhongBan
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHONGBAN_NHANVIEN", Storage="_PHONGBAN", ThisKey="MaPB", OtherKey="MaPB", IsForeignKey=true)]
+		public PHONGBAN PHONGBAN
 		{
 			get
 			{
-				return this._PhongBan.Entity;
+				return this._PHONGBAN.Entity;
 			}
 			set
 			{
-				PhongBan previousValue = this._PhongBan.Entity;
+				PHONGBAN previousValue = this._PHONGBAN.Entity;
 				if (((previousValue != value) 
-							|| (this._PhongBan.HasLoadedOrAssignedValue == false)))
+							|| (this._PHONGBAN.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._PhongBan.Entity = null;
-						previousValue.NhanViens.Remove(this);
+						this._PHONGBAN.Entity = null;
+						previousValue.NHANVIENs.Remove(this);
 					}
-					this._PhongBan.Entity = value;
+					this._PHONGBAN.Entity = value;
 					if ((value != null))
 					{
-						value.NhanViens.Add(this);
+						value.NHANVIENs.Add(this);
 						this._MaPB = value.MaPB;
 					}
 					else
 					{
 						this._MaPB = default(string);
 					}
-					this.SendPropertyChanged("PhongBan");
+					this.SendPropertyChanged("PHONGBAN");
 				}
 			}
 		}
@@ -332,8 +340,8 @@ namespace QLNS
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PhongBan")]
-	public partial class PhongBan : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PHONGBAN")]
+	public partial class PHONGBAN : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -342,7 +350,7 @@ namespace QLNS
 		
 		private string _TenPB;
 		
-		private EntitySet<NhanVien> _NhanViens;
+		private EntitySet<NHANVIEN> _NHANVIENs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -354,13 +362,13 @@ namespace QLNS
     partial void OnTenPBChanged();
     #endregion
 		
-		public PhongBan()
+		public PHONGBAN()
 		{
-			this._NhanViens = new EntitySet<NhanVien>(new Action<NhanVien>(this.attach_NhanViens), new Action<NhanVien>(this.detach_NhanViens));
+			this._NHANVIENs = new EntitySet<NHANVIEN>(new Action<NHANVIEN>(this.attach_NHANVIENs), new Action<NHANVIEN>(this.detach_NHANVIENs));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaPB", DbType="NChar(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaPB", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string MaPB
 		{
 			get
@@ -380,7 +388,7 @@ namespace QLNS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenPB", DbType="NChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenPB", DbType="NVarChar(50)")]
 		public string TenPB
 		{
 			get
@@ -400,16 +408,16 @@ namespace QLNS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PhongBan_NhanVien", Storage="_NhanViens", ThisKey="MaPB", OtherKey="MaPB")]
-		public EntitySet<NhanVien> NhanViens
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHONGBAN_NHANVIEN", Storage="_NHANVIENs", ThisKey="MaPB", OtherKey="MaPB")]
+		public EntitySet<NHANVIEN> NHANVIENs
 		{
 			get
 			{
-				return this._NhanViens;
+				return this._NHANVIENs;
 			}
 			set
 			{
-				this._NhanViens.Assign(value);
+				this._NHANVIENs.Assign(value);
 			}
 		}
 		
@@ -433,16 +441,79 @@ namespace QLNS
 			}
 		}
 		
-		private void attach_NhanViens(NhanVien entity)
+		private void attach_NHANVIENs(NHANVIEN entity)
 		{
 			this.SendPropertyChanging();
-			entity.PhongBan = this;
+			entity.PHONGBAN = this;
 		}
 		
-		private void detach_NhanViens(NhanVien entity)
+		private void detach_NHANVIENs(NHANVIEN entity)
 		{
 			this.SendPropertyChanging();
-			entity.PhongBan = null;
+			entity.PHONGBAN = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DangNhap")]
+	public partial class DangNhap
+	{
+		
+		private string _TenTaiKhoan;
+		
+		private string _MatKhau;
+		
+		private System.Nullable<int> _Quyen;
+		
+		public DangNhap()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenTaiKhoan", DbType="NChar(20)")]
+		public string TenTaiKhoan
+		{
+			get
+			{
+				return this._TenTaiKhoan;
+			}
+			set
+			{
+				if ((this._TenTaiKhoan != value))
+				{
+					this._TenTaiKhoan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatKhau", DbType="NChar(20)")]
+		public string MatKhau
+		{
+			get
+			{
+				return this._MatKhau;
+			}
+			set
+			{
+				if ((this._MatKhau != value))
+				{
+					this._MatKhau = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quyen", DbType="Int")]
+		public System.Nullable<int> Quyen
+		{
+			get
+			{
+				return this._Quyen;
+			}
+			set
+			{
+				if ((this._Quyen != value))
+				{
+					this._Quyen = value;
+				}
+			}
 		}
 	}
 }
